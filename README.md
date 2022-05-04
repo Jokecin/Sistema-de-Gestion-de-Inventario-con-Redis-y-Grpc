@@ -11,7 +11,15 @@
 - **Node** : Plataforma de ejecucción en tiempo real. Será el stack base de la implementación en javascript.
 - **Docker y Docker Compose**: Automatizador de despliegue de entornos. Compose es un orquestador de Dockerfiles, de forma que se puedan desplegar simultaneamente más de un contenedor. Será necesario para poder aislar los 4 servicios solicitados.
 
- **Inicialización**
+ **Inicialización NPM**
+```
+- git clone https://github.com/pame17/Sistemas_Distribuidos
+
+- cd tarea1
+
+- docker-compose up
+```
+ **Inicialización Compose**
 ```
 
 ```
@@ -25,5 +33,7 @@ Entrega estadísticas en un corto espacio  | Entrega estadísticas a largo plazo
 Utilizados en sistemas dinámicos  | Utilizados en sistemas estáticos o relativamente conservadores
 Menor porcentaje de page faults  | Mayor porcentaje de page faults
 
+
+# Selección de algoritmo
 - Para seleccionar un algoritmo de remoción se debe tener en cuenta que tipo de servicio se presta y además cuál suele ser su comportamiento normal. Ambos algoritmos pueden ser implementados según la naturaleza de la página. Si el caso del e-commerce fuera el de una tienda que funciona con un sistema de venta tipo drop en el que un artículo esta a la venta durante un período de tiempo limitado o con un stock limitado sería conveniente utilizar LRU ya que la página variará constantemente sus ventas o hasta incluso que productos ofrece. Por otro lado, si se trata de una tienda establecida que no varía tanto el stock de productos ni agrega constantemente nuevos es conveniente utilizar LFU para mantener métricas históricas de la página y de tal manera se optimiza parte del recorrido habitual de un cliente.
 
