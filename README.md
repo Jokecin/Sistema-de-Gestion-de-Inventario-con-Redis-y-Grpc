@@ -13,7 +13,7 @@
 
  **Inicialización NPM**
 ```
-- git clone https://github.com/pame17/Sistemas_Distribuidos
+- git clone https://github.com/joke1317/Tarea1SD
 
 - cd tarea1
 
