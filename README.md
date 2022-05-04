@@ -15,9 +15,19 @@
 ```
 - git clone https://github.com/joke1317/Tarea1SD
 
-- cd tarea1
+- cd src
 
-- docker-compose up
+- npm install
+
+- npm install nodemon
+
+- npm install express
+
+- npm install redis
+
+- npm install
+
+- npm start
 ```
  **Inicialización Compose**
 ```
@@ -35,5 +45,6 @@ Menor porcentaje de page faults  | Mayor porcentaje de page faults
 
 
 # Selección de algoritmo
-- Para seleccionar un algoritmo de remoción se debe tener en cuenta que tipo de servicio se presta y además cuál suele ser su comportamiento normal. Ambos algoritmos pueden ser implementados según la naturaleza de la página. Si el caso del e-commerce fuera el de una tienda que funciona con un sistema de venta tipo drop en el que un artículo esta a la venta durante un período de tiempo limitado o con un stock limitado sería conveniente utilizar LRU ya que la página variará constantemente sus ventas o hasta incluso que productos ofrece. Por otro lado, si se trata de una tienda establecida que no varía tanto el stock de productos ni agrega constantemente nuevos es conveniente utilizar LFU para mantener métricas históricas de la página y de tal manera se optimiza parte del recorrido habitual de un cliente.
+- Para seleccionar un algoritmo de remoción se debe tener en cuenta que tipo de servicio se presta y además cuál suele ser su comportamiento normal. Ambos algoritmos pueden ser implementados según la naturaleza de la página. Si el caso del e-commerce fuera el de una tienda que funciona con un sistema de venta tipo drop en el que un artículo esta a la venta durante un período de tiempo limitado o con un stock limitado sería conveniente utilizar **LRU** ya que la página variará constantemente sus ventas o hasta incluso que productos ofrece. Por otro lado, si se trata de una tienda establecida que no varía tanto el stock de productos ni agrega constantemente nuevos es conveniente utilizar **LFU** para mantener métricas históricas de la página y de tal manera se optimiza parte del recorrido habitual de un cliente.
+- Para este caso específico, se trata de una página con un aumento explosivo de visitas, por lo tanto los clientes podrían tender a no mantener un comportamiento histórico dada la poca antigüedad de la página. En este caso la página podría verse beneficiada más por un algoritmo **LRU**.
 
