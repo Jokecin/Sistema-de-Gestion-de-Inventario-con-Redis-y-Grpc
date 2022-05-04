@@ -15,7 +15,7 @@
 ```
 - git clone https://github.com/joke1317/Tarea1SD
 
-- cd src
+- cd NPM/src/
 
 - npm install
 
@@ -31,7 +31,11 @@
 ```
  **Inicialización Compose**
 ```
+- git clone https://github.com/joke1317/Tarea1SD
 
+- cd docker/
+
+- docker-compose up
 ```
 
 | LRU | LFU
