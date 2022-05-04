@@ -33,7 +33,7 @@
 ```
 - git clone https://github.com/joke1317/Tarea1SD
 
-- cd docker/
+- cd Distribuidost1/
 
 - docker-compose up
 ```
