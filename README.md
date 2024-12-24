@@ -1,6 +1,6 @@
 # Sistema de Gestión de Inventario y Búsqueda para JR-GGB Spa
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
-
+*Tarea 1 - Sitemas Distribuidos*
 ## Descripción del Proyecto
 
 Este proyecto desarrolla un sistema cliente-servidor para JR-GGB Spa, integrando un motor de búsqueda, cache e inventario. Está diseñado para optimizar la gestión de productos y mejorar la eficiencia de las consultas a través de la implementación de tecnologías de caché y bases de datos.
