@@ -8,7 +8,7 @@ Este proyecto desarrolla un sistema cliente-servidor para JR-GGB Spa, integrando
 ## Tecnologías Utilizadas
 
 - **Redis**: Utilizado como caché en memoria para mejorar el tiempo de respuesta de las búsquedas y reducir la carga sobre la base de datos principal.
-- **gRpc**: Facilita la comunicación entre servicios mediante llamadas a procedimiento remoto, usado aquí para conectar el servicio de inventario con el buscador.
+- **gRPC**: Facilita la comunicación entre servicios mediante llamadas a procedimiento remoto, usado aquí para conectar el servicio de inventario con el buscador.
 - **PostgreSQL**: Base de datos relacional usada para almacenar de forma persistente el inventario de productos.
 - **Node.js**: Entorno de ejecución para JavaScript en el servidor, usado para desarrollar la lógica del negocio y la API del sistema.
 - **Docker y Docker Compose**: Usados para contenerizar y desplegar los servicios de forma aislada, garantizando así la reproducibilidad del entorno y la escalabilidad del sistema.
@@ -25,7 +25,7 @@ Este proyecto desarrolla un sistema cliente-servidor para JR-GGB Spa, integrando
 Para configurar y ejecutar el proyecto en un entorno de desarrollo local:
 
 ```bash
-git clone https://github.com/joke1317/Tarea1SD
+git clone https://github.com/Jokecin/Sistema-de-Gestion-de-Inventario-con-Redis-y-Grpc
 cd NPM/src/
 npm install
 npm install nodemon
