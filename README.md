@@ -1,54 +1,59 @@
-# Tarea1SD
+# Sistema de Gestión de Inventario y Búsqueda para JR-GGB Spa
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
 
-**Tarea 1** La presente entrega da solución al requerimiento planteado en el enunciado sobre la empresa JR-GGB Spa. De tal manera se entrega un sistema cliente servidor que hace uso de un buscador, cache e inventario.
+## Descripción del Proyecto
 
+Este proyecto desarrolla un sistema cliente-servidor para JR-GGB Spa, integrando un motor de búsqueda, cache e inventario. Está diseñado para optimizar la gestión de productos y mejorar la eficiencia de las consultas a través de la implementación de tecnologías de caché y bases de datos.
 
+## Tecnologías Utilizadas
 
-- **Redis**: Es un motor de búsqueda open source basado en tablas de hashes. Será útilizado como memoria caché en esta implementación. 
-- **gRpc**: Sistema de llamada a procedimiento de código abierto. Para esta implementación se usará para manejar las llamadas entre el inventario y el buscador de inventario. 
-- **Postgres SQL**: Sistema de gestión de datos en bases de datos relacionales. Se usará como memoria principal del inventario.
-- **Node** : Plataforma de ejecucción en tiempo real. Será el stack base de la implementación en javascript.
-- **Docker y Docker Compose**: Automatizador de despliegue de entornos. Compose es un orquestador de Dockerfiles, de forma que se puedan desplegar simultaneamente más de un contenedor. Será necesario para poder aislar los 4 servicios solicitados.
+- **Redis**: Utilizado como caché en memoria para mejorar el tiempo de respuesta de las búsquedas y reducir la carga sobre la base de datos principal.
+- **gRpc**: Facilita la comunicación entre servicios mediante llamadas a procedimiento remoto, usado aquí para conectar el servicio de inventario con el buscador.
+- **PostgreSQL**: Base de datos relacional usada para almacenar de forma persistente el inventario de productos.
+- **Node.js**: Entorno de ejecución para JavaScript en el servidor, usado para desarrollar la lógica del negocio y la API del sistema.
+- **Docker y Docker Compose**: Usados para contenerizar y desplegar los servicios de forma aislada, garantizando así la reproducibilidad del entorno y la escalabilidad del sistema.
 
- **Inicialización NPM**
-```
-- git clone https://github.com/joke1317/Tarea1SD
+## Estructura del Proyecto
 
-- cd NPM/src/
+- `NPM/`: Contiene la configuración y los scripts para la API y la lógica del servidor desarrollados en Node.js.
+- `Distribuidost1/`: Incluye los archivos de Docker Compose para orquestar el despliegue de los servicios.
 
-- npm install
+## Inicialización del Proyecto
 
-- npm install nodemon
+### Usando NPM
 
-- npm install express
+Para configurar y ejecutar el proyecto en un entorno de desarrollo local:
 
-- npm install redis
-
-- npm install
-
-- npm start
-```
- **Inicialización Compose**
-```
-- git clone https://github.com/joke1317/Tarea1SD
-
-- cd Distribuidost1/
-
-- docker-compose up
+```bash
+git clone https://github.com/joke1317/Tarea1SD
+cd NPM/src/
+npm install
+npm install nodemon
+npm install express
+npm install redis
+npm install
+npm start
 ```
 
-| LRU | LFU
-| :------: | :------:
-Menos usados recientemente  | Menos frecuentemente usados 
-Remueve el menos usado durante un periodo de tiempo corto  | Remueve el menos usado entre todas las entradas del caché
-Necesita mantener un ranking que se actualiza frecuentemente  | Necesita mantener un ranking constante en el tiempo
-Entrega estadísticas en un corto espacio  | Entrega estadísticas a largo plazo
-Utilizados en sistemas dinámicos  | Utilizados en sistemas estáticos o relativamente conservadores
-Menor porcentaje de page faults  | Mayor porcentaje de page faults
+### Usando Docker Compose
 
+Para desplegar todos los servicios en contenedores Docker:
 
-# Selección de algoritmo
-- Para seleccionar un algoritmo de remoción se debe tener en cuenta que tipo de servicio se presta y además cuál suele ser su comportamiento normal. Ambos algoritmos pueden ser implementados según la naturaleza de la página. Si el caso del e-commerce fuera el de una tienda que funciona con un sistema de venta tipo drop en el que un artículo esta a la venta durante un período de tiempo limitado o con un stock limitado sería conveniente utilizar **LRU** ya que la página variará constantemente sus ventas o hasta incluso que productos ofrece. Por otro lado, si se trata de una tienda establecida que no varía tanto el stock de productos ni agrega constantemente nuevos es conveniente utilizar **LFU** para mantener métricas históricas de la página y de tal manera se optimiza parte del recorrido habitual de un cliente.
-- Para este caso específico, se trata de una página con un aumento explosivo de visitas, por lo tanto los clientes podrían tender a no mantener un comportamiento histórico dada la poca antigüedad de la página. En este caso la página podría verse beneficiada más por un algoritmo **LRU**.
+```bash
+git clone https://github.com/joke1317/Tarea1SD
+cd Distribuidost1/
+docker-compose up
+```
 
+## Selección de Algoritmo de Caché
+
+### LRU vs LFU
+
+- **LRU (Least Recently Used)**: Ideal para entornos donde los datos accedidos recientemente son más probables de ser usados de nuevo. Utilizado eficazmente en escenarios dinámicos.
+- **LFU (Least Frequently Used)**: Beneficioso para entornos donde algunos datos son accedidos más frecuentemente que otros a lo largo del tiempo. Adecuado para sistemas con acceso estable y predecible a datos.
+
+Dado el incremento explosivo de visitas y la variabilidad en el comportamiento de los usuarios, se recomienda el uso de **LRU** para este proyecto, proporcionando una gestión de caché más adaptativa y eficiente en un entorno de e-commerce dinámico.
+
+## Contribuciones
+
+Se invita a contribuciones para mejorar el proyecto. Cualquier colaboración para optimizar el código, agregar funcionalidades o corregir errores es bienvenida.
