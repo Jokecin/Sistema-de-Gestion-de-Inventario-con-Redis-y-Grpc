@@ -49,8 +49,14 @@ docker-compose up
 
 ### LRU vs LFU
 
-- **LRU (Least Recently Used)**: Ideal para entornos donde los datos accedidos recientemente son más probables de ser usados de nuevo. Utilizado eficazmente en escenarios dinámicos.
-- **LFU (Least Frequently Used)**: Beneficioso para entornos donde algunos datos son accedidos más frecuentemente que otros a lo largo del tiempo. Adecuado para sistemas con acceso estable y predecible a datos.
+| LRU | LFU
+| :------: | :------:
+Menos usados recientemente  | Menos frecuentemente usados 
+Remueve el menos usado durante un periodo de tiempo corto  | Remueve el menos usado entre todas las entradas del caché
+Necesita mantener un ranking que se actualiza frecuentemente  | Necesita mantener un ranking constante en el tiempo
+Entrega estadísticas en un corto espacio  | Entrega estadísticas a largo plazo
+Utilizados en sistemas dinámicos  | Utilizados en sistemas estáticos o relativamente conservadores
+Menor porcentaje de page faults  | Mayor porcentaje de page faults
 
 Dado el incremento explosivo de visitas y la variabilidad en el comportamiento de los usuarios, se recomienda el uso de **LRU** para este proyecto, proporcionando una gestión de caché más adaptativa y eficiente en un entorno de e-commerce dinámico.
 
